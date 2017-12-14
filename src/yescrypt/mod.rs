@@ -10,15 +10,15 @@ static YESCRYPT_T: i32 = 0;
 struct YescryptLocal {
     base: * c_void,
     aligned: * c_void,
-    base_size: i32,
-    aligned_size: i32,
+    base_size: usize,
+    aligned_size: usize,
 }
 
 struct YescryptShared {
     base: * c_void,
     aligned: * c_void,
-    base_size: i32,
-    aligned_size: i32,
+    base_size: usize,
+    aligned_size: usize,
     mask: u32,
 }
 
