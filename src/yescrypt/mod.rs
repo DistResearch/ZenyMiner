@@ -2,10 +2,10 @@ pub mod reference;
 mod optimize;
 mod simd;
 
-static YESCRYPT_N: i32 = 2048;
-static YESCRYPT_R: i32 = 8;
-static YESCRYPT_P: i32 = 1;
-static YESCRYPT_T: i32 = 0;
+const YESCRYPT_N: i32 = 2048;
+const YESCRYPT_R: i32 = 8;
+const YESCRYPT_P: i32 = 1;
+const YESCRYPT_T: i32 = 0;
 
 struct YescryptLocal {
     base: * c_void,
