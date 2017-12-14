@@ -89,6 +89,28 @@ fn r(mut x: u32, a: u32, b: u32) {
     x ^= ((a) << (b)) | ((a) >> (32 - (b)))
 }
 
+/**
+ * These are tunable
+ */
+const S_BITS: i32 = 8;
+const S_SIMD: i32 = 2;
+const S_P: i32 = 4;
+const S_ROUNDS: i32 = 6;
+
+/**
+ * Number of S-boxes. Not tunable, hard-coded in a few place.
+ */
+const S_N: i32 = 2;
+
+/**
+ * Derived values. Not tunable on their own.
+ */
+const S_SIZE1: i32 = 1 << S_BITS;
+const S_MASK: i32 = (S_SIZE1 - 1) * S_SIMD * 8;
+const S_SIZE_ALL: i32 = S_N * S_SIZE1 * S_SIMD * 2;
+const S_P_SIZE: i32 = S_P * S_SIMD * 2;
+const S_MIN_R: i32 = (S_P * S_SIMD + 15) / 16;
+
 fn yescrypt_bitzeny(password: u8, password_len: usize, salt: u8,
                     salt_len: usize, buf: u8, buf_len: usize) -> i32 {
     let initialized = Mutex::new(0);
