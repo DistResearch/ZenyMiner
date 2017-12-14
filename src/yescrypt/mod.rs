@@ -1,4 +1,6 @@
 pub mod reference;
+mod optimize;
+mod simd;
 
 static YESCRYPT_N: i32 = 2048;
 static YESCRYPT_R: i32 = 8;
